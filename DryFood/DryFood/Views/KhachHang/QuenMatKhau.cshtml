@@ -1,0 +1,37 @@
+﻿@using DryFood.Models
+@model DoiMatKhau
+@{
+    ViewBag.Title = "QuenMatKhau";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align: center">QUÊN MẬT KHẨU</h2>
+<br />
+<div class="row">
+    <div class="offset-md-1 col-md-10">
+        <h2 style="color: red;">@ViewBag.ThongBao</h2>
+
+        @using (Html.BeginForm("QuenMatKhau", "KhachHang"))
+        {
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <label for="SDT">Số điện thoại:</label>
+                @Html.TextBox("SDT", null, new { @class = "form-control", @id = "SDT"})
+                @Html.ValidationMessageFor(m => m.SDT, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="MatKhauMoi">Mật khẩu mới:</label>
+                @Html.Password("MatKhauMoi", null, new { @class = "form-control", @id = "matkhaumoi" })
+                @Html.ValidationMessageFor(m => m.MatKhauMoi, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="MatKhauKiemTra">Nhập lại mật khẩu mới:</label>
+                @Html.Password("MatKhauKiemTra", null, new { @class = "form-control", @id = "kiemtramatkhaumoi" })
+                @Html.ValidationMessageFor(m => m.MatKhauKiemTra, "", new { @class = "text-danger" })
+            </div>
+            <button type="submit" class="btn btn-primary">ĐĂNG NHẬP</button>
+        }
+    </div>
+</div>
+<br />
+

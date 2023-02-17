@@ -1,0 +1,91 @@
+﻿@model IEnumerable<DryFood.Areas.Admin.Data.DONHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdLayout.cshtml";
+}
+
+<div class="body_right_top">
+    <div class="body_right_top_left">
+        <p class="right_top_left_title">Danh sách đơn hàng</p>
+    </div>
+    <div class="body_right_top_right">
+        <button class="add-new-item" onclick="location.href='@Url.Action("Create", "DONHANGs")'">
+            <i class="fas fa-plus"></i>
+            Thêm DH
+        </button>
+    </div>
+</div>
+<div class="body_right_bottom">
+    <table class="table myAdTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NoiGiao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayDat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NhanXet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TamTinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThanhTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaTrangThai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KHACHHANG.Ho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KHUYENMAI.TenKM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PTTT.TenPTTT)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoiGiao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhanXet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TamTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThanhTien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaTrangThai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KHACHHANG.Ho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KHUYENMAI.TenKM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PTTT.TenPTTT)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaDH }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaDH }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaDH })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

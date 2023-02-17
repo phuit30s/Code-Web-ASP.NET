@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DryFood.Areas.Admin.Data.NHACUNGUNG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdLayout.cshtml";
+}
+
+<div class="body_right_top">
+    <div class="body_right_top_left">
+        <p class="right_top_left_title">Danh sách nhà cung ứng</p>
+    </div>
+    <div class="body_right_top_right">
+        <button class="add-new-item" onclick="location.href='@Url.Action("Create", "NHACUNGUNGs")'">
+            <i class="fas fa-plus"></i>
+            Thêm NCC
+        </button>
+    </div>
+</div>
+<div class="body_right_bottom">
+    <table class="table myAdTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenNCC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SDTNCC)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNCC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDTNCC)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaNCC }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaNCC }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaNCC })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

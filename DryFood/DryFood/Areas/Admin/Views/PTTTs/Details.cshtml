@@ -1,0 +1,35 @@
+﻿@model DryFood.Areas.Admin.Data.PTTT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PTTT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenPTTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPTTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnhPTTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnhPTTT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPTTT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

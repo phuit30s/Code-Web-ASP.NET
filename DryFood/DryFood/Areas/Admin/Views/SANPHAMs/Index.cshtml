@@ -1,0 +1,97 @@
+﻿@model IEnumerable<DryFood.Areas.Admin.Data.SANPHAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdLayout.cshtml";
+}
+
+<div class="body_right_top">
+    <div class="body_right_top_left">
+        <p class="right_top_left_title">Danh sách sản phẩm</p>
+    </div>
+    <div class="body_right_top_right">
+        <button class="add-new-item" onclick="location.href='@Url.Action("Create", "SANPHAMs")'">
+            <i class="fas fa-plus"></i>
+            Thêm SP
+        </button>
+    </div>
+</div>
+<div class="body_right_bottom">
+    <table class="table myAdTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoTa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiaBan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnhSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayNhap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLanBan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrangThaiSP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LOAI.TenLoai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NHACUNGUNG.TenNCC)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaBan)
+                </td>
+                <td>
+                    <img src="~/Images/@Url.Content(item.AnhSP)" style="height: 70px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayNhap)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLanBan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrangThaiSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOAI.TenLoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NHACUNGUNG.TenNCC)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaSP }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaSP })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

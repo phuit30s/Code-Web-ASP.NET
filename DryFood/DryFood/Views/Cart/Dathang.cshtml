@@ -1,0 +1,90 @@
+﻿@using DryFood.Models
+@model List<CartItem>
+@using DryFood.Areas.Admin.Data
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_2.cshtml";
+    TAIKHOAN khach = Session["TaiKhoan"] as TAIKHOAN;
+    ThongTinDatHang ttdh = Session["ThongTin"] as ThongTinDatHang;
+}
+@{
+    ViewBag.Title = "Dathang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-wrap hero-bread" style="background-image: url('../Theme/images/banner1.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Checkout</span></p>
+                <h1 class="mb-0 bread">Checkout</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>THÔNG TIN HÀNG HÓA</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Hình</th>
+        <th>Tên sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Đơn giá</th>
+        <th>Thành tiền</th>
+        <th></th>
+    </tr>
+    @foreach (CartItem item in Model)
+    {
+        <tr>
+            <td class="text-center"><img src="~/Images/@item.AnhSP" width="70" height="60" /> </td>
+
+            <td><a target="_blank" href="@Url.Action("Details", "DryFood", new { id = item.MaSP })"> @item.TenSP </a> </td>
+            <td>@item.SoLuong </td>
+            <td> @item.Giaban.ToString("#,##0").Replace(',', '.') VNĐ </td>
+            <td> @item.ThanhTien.ToString("#,##0").Replace(',', '.') VNĐ </td>
+
+        </tr>
+    }
+    <tr>
+
+        <td class="text-right">Tổng số lượng:</td>
+        <td> @Model.Sum(m => m.SoLuong) </td>
+        <td class="text-right">Tổng thành tiền:</td>
+        <td>@Model.Sum(m => m.ThanhTien).ToString("#,##0").Replace(',', '.') VNĐ </td>
+        <td>
+            @Html.ActionLink("TRỞ VỀ GIỎ HÀNG", "Index", "Cart")
+        </td>
+    </tr>
+</table>
+<h2> Thông Tin đặt hàng</h2>
+<table align="center">
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        @Html.Action("PhieuThongTin", "Cart")
+        <tr style=" height:40px">
+            <td></td>
+            <td>
+                @*<button type="submit" class="btn btn-primary">ĐỒNG Ý ĐẶT HÀNG</button>*@
+                @Html.ActionLink("ĐỒNG Ý ĐẶT HÀNG", "DongYDat")
+            </td>
+        </tr>
+    }
+</table>
+<script src="~/Theme/js/jquery.min.js"></script>
+<script src="~/Theme/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="~/Theme/js/popper.min.js"></script>
+<script src="~/Theme/js/bootstrap.min.js"></script>
+<script src="~/Theme/js/jquery.easing.1.3.js"></script>
+<script src="~/Theme/js/jquery.waypoints.min.js"></script>
+<script src="~/Theme/js/jquery.stellar.min.js"></script>
+<script src="~/Theme/js/owl.carousel.min.js"></script>
+<script src="~/Theme/js/jquery.magnific-popup.min.js"></script>
+<script src="~/Theme/js/aos.js"></script>
+<script src="~/Theme/js/jquery.animateNumber.min.js"></script>
+<script src="~/Theme/js/bootstrap-datepicker.js"></script>
+<script src="~/Theme/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="~/Theme/js/google-map.js"></script>
+<script src="~/Theme/js/main.js"></script>

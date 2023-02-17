@@ -1,0 +1,91 @@
+﻿@model DryFood.Areas.Admin.Data.DONHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DONHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiGiao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiGiao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhanXet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanXet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TamTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TamTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaTrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACHHANG.Ho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.Ho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHUYENMAI.TenKM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHUYENMAI.TenKM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTTT.TenPTTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTTT.TenPTTT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

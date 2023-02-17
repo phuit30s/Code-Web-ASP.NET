@@ -1,0 +1,264 @@
+﻿@using DryFood.Models
+@model List<CartItem>
+@using DryFood.Areas.Admin.Data
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_2.cshtml";
+    TAIKHOAN khach = Session["TaiKhoan"] as TAIKHOAN;
+}
+
+@if (Model == null || Model.Count == 0)
+{
+    <p class="text-info text-center">
+        Giỏ hàng của bạn rỗng!
+    </p>
+}
+else
+{
+    @*<div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Hình</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                            <th></th>
+                        </tr>
+                        @foreach (CartItem item in Model)
+                        {
+                            <tr>
+                                <td class="text-center"><img src="~/Images/@item.AnhSP" width="70" height="60" /> </td>
+                                <td><a target="_blank" href="@Url.Action("Details", "DryFood", new { id = item.MaSP })"> @item.TenSP </a> </td>
+                                <td>
+                                    <form action="@Url.Action("SuaSoLuong")" method="get">
+                                        <input type="hidden" name="SanPhamID" value="@item.MaSP" />
+                                        <input type="number" min="1" step="1" name="soluongmoi" value="@item.SoLuong" />
+                                        <button type="submit" class="btn btn-primary btn-sm"> Cập nhật </button>
+                                    </form>
+                                </td>
+                                <td> @item.Giaban.ToString("#,##0").Replace(',', '.') VNĐ </td>
+                                <td> @item.ThanhTien.ToString("#,##0").Replace(',', '.') VNĐ </td>
+
+                                <td> <a href="@Url.Action("XoaKhoiGio", new { SanPhamID = item.MaSP })" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');" class="btn btn-danger btn-sm">Xóa</a> </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td class="text-right">Tổng số lượng:</td>
+                            <td> @Model.Sum(m => m.SoLuong) </td>
+                            <td class="text-right">Tổng thành tiền:</td>
+                            <td>@Model.Sum(m => m.ThanhTien).ToString("#,##0").Replace(',', '.') VNĐ </td>
+                        </tr>
+                        <tr style="font-weight:bold;color:blue;text-align:right">
+                            <td align="center">
+                                @Html.ActionLink("ĐẶT HÀNG", "Dathang", "Cart")
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>*@
+
+<section class="ftco-section ftco-cart">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="cart-list">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>Product name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (CartItem item in Model)
+                            {
+                                <tr class="text-center">
+                                    <td class="submit px-3">@Html.ActionLink("Delete", "XoaGiohang", new { iMaSp = item.MaSP })@*<span class="ion-ios-close"></span>*@ </td>
+
+                                    <td class="image-prod"><img class="img" src="~/Images/@item.AnhSP" /></td>
+
+                                    <td class="product-name" style="width: 100%">
+                                        <h3 style="">@item.TenSP</h3>
+                                        <p></p>
+                                    </td>
+
+                                    <td class="price">@item.Giaban.ToString("#,##0").Replace(',', '.') VNĐ</td>
+
+                                    <td>
+                                        <form action="@Url.Action("SuaSoLuong")" method="get">
+                                            <input type="hidden" name="SanPhamID" value="@item.MaSP" />
+                                            <input type="number" min="1" step="1" name="soluongmoi" value="@item.SoLuong" />
+                                            <button type="submit" class="btn btn-primary "> Cập nhật </button>
+                                        </form>
+                                    </td>
+                                    @*<td class="quantity">
+                                            <div class="input-group mb-3">
+                                                <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                            </div>
+                                        </td>*@
+
+                                    <td class="total">@item.ThanhTien.ToString("#,##0").Replace(',', '.') VNĐ</td>
+                                </tr><!-- END TR-->
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" style="display: flex">
+            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                <div class="cart-total mb-3">
+                    <h3>Cart Totals</h3>
+                    <p class="d-flex">
+                        <span>Subtotal</span>
+                        <span>00.00</span>
+                    </p>
+                    <p class="d-flex">
+                        <span>Delivery</span>
+                        <span>0.00</span>
+                    </p>
+                    <p class="d-flex">
+                        <span>Discount</span>
+                        <span>0.00VNĐ</span>
+                    </p>
+                    <hr>
+                    <p class="d-flex total-price">
+                        <span>Total</span>
+                        <span>@Model.Sum(m => m.ThanhTien).ToString("#,##0").Replace(',', '.') VNĐ</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5" style="margin-top: 48px">
+                @if (khach == null)
+                {
+                    <table align="center">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.ValidationSummary(true)
+                            <tr style="height:40px">
+                                <td> <label for="Ten">Tên khách hàng </label></td>
+                                <td>
+                                    @Html.TextBox("Ten", null, new { @class = "form-control", @id = "Ten", @Value = " " })
+                                </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> <label for="DiaChi">Địa chỉ</label> </td>
+                                <td>
+                                    @Html.TextBox("DiaChi", null, new { @class = "form-control", @id = "DiaChi", @Value = " " })
+                                </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Số Điện thoại </td>
+                                <td>
+                                    @Html.TextBox("SDT", null, new { @class = "form-control", @id = "SDT", @Value = " " })
+                                </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Ngày đặt </td>
+                                <td style="font-weight:bold">@DateTime.Now.ToLongDateString()</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Ngày giao hàng </td>
+                                <td style="font-weight:bold">
+                                    <input type="date" name="Ngaygiao" />
+                                </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Mã khuyến mãi </td>
+                                <td>
+                                    @Html.TextBox("MaKM", null, new { @class = "form-control", @id = "MaKM", @Value = " " })
+                                </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> PTTT </td>
+                                <td>
+                                    @Html.TextBox("MaPTTT", null, new { @class = "form-control", @id = "MaPTTT", @Value = " " })
+                                </td>
+                            </tr>
+                            <tr style=" height:40px">
+                                <td></td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
+                                    @*<p><a href="@Url.Action("Dathang", "Cart")" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>*@
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+                else
+                {
+                    <table align="center">
+                        @using (Html.BeginForm("Index", "Cart"))
+                        {
+                            @Html.ValidationSummary(true)
+                            <tr style="height:40px">
+                                <td> Tên khách hàng </td>
+                                <td style="font-weight:bold">@khach.KHACHHANG.Ten</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Địa chỉ </td>
+                                <td style="font-weight:bold">@khach.KHACHHANG.DiaChi </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Số Điện thoại </td>
+                                <td style="font-weight:bold">@khach.SDT </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Ngày đặt </td>
+                                <td style="font-weight:bold">@DateTime.Now.ToLongDateString()</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Ngày giao hàng </td>
+                                <td style="font-weight:bold">
+                                    <input type="date" name="Ngaygiao" />
+                                </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td> Mã khuyến mãi </td>
+                                <td style="font-weight:bold">
+                                </td>
+                            </tr>
+                            <tr style=" height:40px">
+                                <td></td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
+                                    @*<p><a href="@Url.Action("Dathang", "Cart")" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>*@
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+    <script src="~/Theme/js/jquery.min.js"></script>
+    <script src="~/Theme/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Theme/js/popper.min.js"></script>
+    <script src="~/Theme/js/bootstrap.min.js"></script>
+    <script src="~/Theme/js/jquery.easing.1.3.js"></script>
+    <script src="~/Theme/js/jquery.waypoints.min.js"></script>
+    <script src="~/Theme/js/jquery.stellar.min.js"></script>
+    <script src="~/Theme/js/owl.carousel.min.js"></script>
+    <script src="~/Theme/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Theme/js/aos.js"></script>
+    <script src="~/Theme/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Theme/js/bootstrap-datepicker.js"></script>
+    <script src="~/Theme/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/Theme/js/google-map.js"></script>
+    <script src="~/Theme/js/main.js"></script>
+}

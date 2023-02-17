@@ -1,0 +1,306 @@
+﻿img {
+    vertical-align: middle;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.header {
+    width: 100%;
+    height: 60px;
+    background: #374f65;
+}
+
+.header-left {
+    width: 17%;
+    height: 60px;
+    background: #374f65;
+    float: left;
+}
+
+.left-title {
+    margin-left: 40px;
+}
+
+.title-item {
+    list-style: none;
+    font-size: 18pt;
+}
+
+.tab-title {
+    line-height: 60px;
+    font-weight: 800;
+    color: #f2f4f5;
+}
+
+/*--*/
+@media (min-width: 768px) {
+    .col-md-2 {
+        -ms-flex: 0 0 16.666667%;
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+}
+
+.myAdTable {
+    max-height: 430px;
+    border-collapse: collapse;
+    border: 2px solid skyblue;
+}
+
+@media screen and (max-width: 1000px) {
+    .myAdTable {
+        max-height: 430px;
+        border-collapse: collapse;
+        border: 2px solid skyblue;
+        max-width: 1000px;
+    }
+}
+
+.myAdTable tr, td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+}
+
+.myAdTable th, td {
+    padding: 7px;
+}
+
+.myAdTable th {
+    background: rgb(240, 240, 175);
+}
+
+.myAdTable td {
+    background: lightyellow;
+}
+
+/*--*/
+.body_right_top {
+    height: 50px;
+    width: 100%;
+    background: rgb(255, 247, 174);
+}
+
+.body_right_bottom {
+    margin-top: 1%;
+}
+
+.body_right_top_left {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-left: 30px;
+    float: left;
+}
+
+.right_top_left_title {
+    color: #005fab;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.body_right_top_right {
+    float: right;
+    margin-right: 30px;
+    padding-top: 10px;
+}
+
+.add-new-item {
+    color: white;
+    background: #005fab;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    margin-right: 3px;
+}
+
+.formResize {
+    display: inline-block;
+    min-height: 200px;
+}
+
+.saveBtn {
+    border: 1px solid black;
+}
+
+/*--Sidebar--*/
+/*.body_left {
+    float: left;
+    width: 18%;
+    height: auto;
+    background: #253544;
+}
+.main_menu {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+}
+.main_menu_item {
+    border-bottom: 1px solid #f2f4f5;
+}
+.menu_link {
+    padding-left: 20px;
+    line-height: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #f2f4f5;
+    display: block;
+}*/
+/*--new--*/
+.side-bar {
+    background: #1C445F;
+    padding: 0;
+    min-height: 2500px;
+    width: 22%;
+/*    margin-right: 2%;*/
+}
+.logo {
+    padding: 3em 0;
+    background: #2F5671;
+    margin-bottom: 5em;
+}
+.text-center {
+    text-align: center;
+}
+.navigation {
+    padding-bottom: 2em;
+}
+.navigation h3 {
+    background: #2F5671;
+    padding: 0.7em 0;
+    color: #fff;
+    font-size: 1.35em;
+    font-weight: 600;
+    padding-left: 2.5em;
+    margin-bottom: 1em;
+}
+.navigation ul {
+    padding-left: 4em;
+    padding-bottom: 0.25em;
+    padding-top: 0em;
+    cursor: pointer;
+}
+.navigation ul li {
+    display: inline-block;
+    margin: 5px 0;
+}
+@media screen and (max-width: 1366px) {
+    .navigation ul li a {
+        font-size: 1.2em;
+    }
+}
+.navigation ul li a {
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 300;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+/*--Body--*/
+.list_of_members {
+    margin: 2em 0;
+}
+.sales {
+    width: 23.5%;
+    margin-right: 2%;
+    background: #16a085;
+    float: left;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.new-users {
+    width: 23.5%;
+    background: #e05d6f;
+    float: left;
+    margin-right: 2%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.orders {
+    width: 23.5%;
+    margin-right: 2%;
+    background: #418bca;
+    float: left;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.visitors {
+    width: 23.5%;
+    margin-right: 0%;
+    background: #3f4e62;
+    float: left;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.visitors h3, .sales h3, .new-users h3, .orders h3 {
+    color: #fff;
+    text-align: center;
+    font-size: 2.6em;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+@media screen and (max-width: 1280px) {
+    .visitors p, .sales p, .new-users p, .orders p {
+        font-size: 1.1em;
+    }
+}
+.visitors p, .sales p, .new-users p, .orders p {
+    text-align: center;
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+/*--*/
+.footer {
+    width: 100%;
+    height: 40px;
+    background: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#foot_txt {
+    color: black;
+    font-weight: 800;
+    text-align: center;
+    line-height: 40px;
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+/*--ThongKe--*/
+.label_ThongKe {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    width: 100%;
+    background: rgb(255, 247, 174);
+    vertical-align: middle;
+}
+.left_label_ThongKe {
+    padding-top: 9px;
+    padding-bottom: 12px;
+    margin-left: 20px;
+}
+.middle_label_ThongKe {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.date_label_ThongKe {
+    margin-right: 20px;
+}
+.right_label_ThongKe {
+    padding-top: 9px;
+    padding-bottom: 12px;
+    margin-right: 20px;
+}

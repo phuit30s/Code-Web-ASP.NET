@@ -1,0 +1,38 @@
+﻿@model ThongTinDatHang
+@using DryFood.Models
+
+@{
+    ThongTinDatHang ttdh = Session["ThongTin"] as ThongTinDatHang;
+}
+
+        <tr style="height:40px">
+            <td> Họ và tên khách hàng </td>
+            <td style="font-weight:bold">@Model.Ten</td>
+        </tr>
+        <tr style="height:40px">
+            <td> Địa chỉ </td>
+            <td style="font-weight:bold">@Model.DiaChi </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Số Điện thoại </td>
+            <td style="font-weight:bold">@Model.SDT </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Ngày đặt </td>
+            <td style="font-weight:bold">@DateTime.Now.ToLongDateString()</td>
+        </tr>
+        <tr style="height:40px">
+            <td> Ngày giao hàng </td>
+            <td style="font-weight:bold">
+                
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Mã khuyến mãi </td>
+            <td> @Model.MaKM </td>
+        </tr>
+        <tr style="height:40px">
+            <td> PTTT </td>
+            <td> @Model.MaPTTT </td>
+        </tr>
+        

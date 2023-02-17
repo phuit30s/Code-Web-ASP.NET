@@ -1,0 +1,108 @@
+﻿@using DryFood.Areas.Admin.Data
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    TAIKHOAN khach = Session["TaiKhoan"] as TAIKHOAN;
+}
+
+<div>
+    <div class="Title">
+        <h2 class="Title_info">Thông Tin Cá Nhân</h2>
+    </div>
+    <div>
+        <div class="Information">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <div class="margin_info">
+                    <div class="align_info">
+                        <div class="label_info">
+                            <label>Số điện thoại:</label>
+                        </div>
+                        <div class="gridview_info">
+                            <div class="view_info">
+                                <div class="content_info">@khach.SDT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin_info">
+                    <div class="align_info">
+                        <div class="label_info">
+                            <label>Mật khẩu:</label>
+                        </div>
+                        <div class="gridview_info">
+                            <div class="view_info">
+                                @*<div class="content_info">@khach.MatKhau</div>*@
+                                @Html.Password("Ho", khach.MatKhau, new { @class = "box_content_info", @id = "Ho" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin_info">
+                    <div class="align_info">
+                        <div class="label_info">
+                            <label>Họ:</label>
+                        </div>
+                        <div class="gridview_info">
+                            <div>
+                                <div class="box_info">
+                                    @Html.TextBox("Ho", khach.KHACHHANG.Ho, new { @class = "box_content_info", @id = "Ho" })
+                                    @*<input type="text" placeholder="" class="box_content_info" value="@khach.KHACHHANG.Ho">*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin_info">
+                    <div class="align_info">
+                        <div class="label_info">
+                            <label>Tên Đệm:</label>
+                        </div>
+                        <div class="gridview_info">
+                            <div>
+                                <div class="box_info">
+                                    @Html.TextBox("TenDem", khach.KHACHHANG.TenDem, new { @class = "box_content_info", @id = "TenDem" })
+                                    @*<input type="text" placeholder="" class="box_content_info" value="@khach.KHACHHANG.TenDem">*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin_info">
+                    <div class="align_info">
+                        <div class="label_info">
+                            <label>Tên:</label>
+                        </div>
+                        <div class="gridview_info">
+                            <div>
+                                <div class="box_info">
+                                    @Html.TextBox("Ten", khach.KHACHHANG.Ten, new { @class = "box_content_info", @id = "Ten" })
+                                    @*<input type="text" placeholder="" class="box_content_info" value="@khach.KHACHHANG.Ten">*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="margin_info">
+                    <div class="align_info">
+                        <div class="label_info">
+                            <label>Địa Chỉ:</label>
+                        </div>
+                        <div class="gridview_info">
+                            <div class="box_info">
+                                <input type="text" placeholder="" class="box_content_info" value="@khach.KHACHHANG.DiaChi">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="X9w211">
+                    <button type="button" class="btn1 btn-solid-primary btn--m btn--inline" aria-disabled="false">Lưu</button>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+

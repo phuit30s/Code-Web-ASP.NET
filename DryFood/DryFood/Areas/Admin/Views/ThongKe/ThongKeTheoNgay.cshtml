@@ -1,0 +1,109 @@
+﻿@using DryFood.Areas.Admin.Data
+@model IEnumerable<DONHANG>
+@{
+    ViewBag.Title = "ThongKeTheoNgay";
+    Layout = "~/Areas/Admin/Views/Shared/_AdLayout.cshtml";
+}
+
+@using (Html.BeginForm("ThongKeTheoNgay", "ThongKe", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <div class="label_ThongKe">
+        <div class="left_label_ThongKe">
+            <p class="right_top_left_title">Thống kê đơn hàng theo ngày</p>
+        </div>
+        <div class="middle_label_ThongKe">
+            <div class="date_label_ThongKe">
+                <label name="firstDate"></label>
+                <input type="date" name="firstDate" id="firstDate" />
+            </div>
+            <div class="date_label_ThongKe">
+                <label name="lastDate"></label>
+                <input type="date" name="lastDate" id="lastDate" />
+            </div>
+        </div>
+        <div class="right_label_ThongKe">
+            <button type="submit" class="add-new-item find_label_ThongKe">Tìm kiếm</button>
+        </div>
+    </div>
+}
+<div class="label_ThongKe">
+    <div class="left_label_ThongKe">
+        <p class="right_top_left_title">Tổng doanh thu: @ViewBag.Total VNĐ</p>
+    </div>
+    <div class="middle_label_ThongKe">
+        <div class="date_label_ThongKe">
+            <p>Từ: @ViewBag.FirstDate</p>
+        </div>
+        <div class="date_label_ThongKe">
+            <p>Đến: @ViewBag.LastDate</p>
+        </div>
+    </div>
+</div>
+<div class="body_right_bottom">
+    <table class="table myAdTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NoiGiao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayDat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NhanXet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TamTinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThanhTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaTrangThai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KHACHHANG.Ho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KHUYENMAI.TenKM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PTTT.TenPTTT)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoiGiao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NhanXet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TamTinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThanhTien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaTrangThai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KHACHHANG.Ho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KHUYENMAI.TenKM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PTTT.TenPTTT)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

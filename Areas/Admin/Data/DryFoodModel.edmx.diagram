@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4ee838fa424349b28b75cb863e84b4c8" Name="Diagram1">
+        <EntityTypeShape EntityType="dryfoodModel.CTDONHANG" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.DONHANG" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.KHUYENMAI" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.LOAI" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.NHACUNGUNG" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.PTTT" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.SANPHAM" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.TAIKHOAN" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dryfoodModel.TRANGTHAIDH" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="dryfoodModel.FK_CTDONHANG_DONHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="dryfoodModel.FK_CTDONHANG_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="dryfoodModel.FK_DONHANG_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="dryfoodModel.FK_DONHANG_KHUYENMAI" ManuallyRouted="false" />
+        <AssociationConnector Association="dryfoodModel.FK_DONHANG_PTTT" ManuallyRouted="false" />
+        <AssociationConnector Association="dryfoodModel.FK_TAIKHOAN_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="dryfoodModel.FK_SANPHAM_LOAI" ManuallyRouted="false" />
+        <AssociationConnector Association="dryfoodModel.FK_SANPHAM_NHACUNGUNG" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

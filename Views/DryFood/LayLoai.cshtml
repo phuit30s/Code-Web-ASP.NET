@@ -1,0 +1,9 @@
+﻿@using DryFood.Areas.Admin.Data
+@model IEnumerable<LOAI>
+
+@foreach (var loai in Model)
+{
+    <li>
+        <a href="@Url.Action("SPTheoLoai", "DryFood", new { id=loai.MaLoai })">@loai.TenLoai</a>
+    </li>
+}
